@@ -1,0 +1,45 @@
+.Home {}
+
+.book {
+
+    width: 700px;
+    position: absolute;
+    left: 50%;
+    top: 22%;
+    opacity: 80%;
+}
+
+.title {
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    left: 6%;
+    top: 23%;
+    opacity: 80%;
+}
+
+.txtbienvenida {
+    position: absolute;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.5;
+    color: white;
+    font-size: 20px;
+    padding: 0;
+    left: 6%;
+    /* Ajusta la posición horizontalmente */
+    transform: translateX(50%);
+    /* Centra horizontalmente */
+    top: 50%;
+    /* Ajusta la posición verticalmente */
+    transform: translateY(-50%);
+    opacity: 80%;
+}
+
+.btnEmpezar {
+    position: absolute;
+    left: 45%;
+    top: 66%;
+    width: 200px;
+}

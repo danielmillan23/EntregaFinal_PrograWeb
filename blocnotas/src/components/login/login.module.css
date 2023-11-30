@@ -1,0 +1,16 @@
+.fondologin {
+    position: absolute;
+    width: 800px;
+    height: 500px;
+
+    right: 350px;
+    color: black;
+    bottom: 60px;
+    opacity: 80%;
+    padding: 0%;
+
+}
+
+.botonInicio {
+    background-color: #050a24;
+}
