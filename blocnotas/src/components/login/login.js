@@ -14,6 +14,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { style } from '@mui/system';
+import men from '../../men.png';
 
 const Login = () => (
   <div className={styles.Login} data-testid="Login">
@@ -26,10 +27,7 @@ const Login = () => (
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundImage: `url(${men})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -55,6 +53,7 @@ const Login = () => (
                 margin="normal"
                 required
                 fullWidth
+                color='grey'
                 id="username"
                 label="Username"
                 name="username"
@@ -66,6 +65,7 @@ const Login = () => (
                 margin="normal"
                 required
                 fullWidth
+                color='grey'
                 name="password"
                 label="Password"
                 type="password"
@@ -84,14 +84,9 @@ const Login = () => (
                 Sign In
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    ¿Olvidaste la contraseña?
-                  </Link>
-                </Grid>
                 <Grid item>
-                  <Link href="/registro" variant="body2">
-                    {"Registrarse"}
+                  <Link href="/registro" variant="body2" style={{ color: 'black', textDecorationColor: 'black', marginLeft:'220px'}}>
+                    {"Sign up"}
                   </Link>
                 </Grid>
               </Grid>
