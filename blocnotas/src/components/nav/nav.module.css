@@ -24,3 +24,15 @@
 
 
 }
+
+.info {
+    position: absolute;
+    left: 88%;
+    margin: 0%;
+}
+
+.btnInfo {
+    opacity: 80%;
+    color: white !important;
+
+}

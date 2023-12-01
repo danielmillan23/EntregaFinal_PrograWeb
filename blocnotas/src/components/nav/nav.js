@@ -7,8 +7,12 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import logoNotas from '../../logoNotas.png';
+import Button from '@mui/material/Button';
 
-const Nav = () => (
+const Nav = () =>
+
+(
+
   <div className={styles.Nav} data-testid="Nav">
     <Box className={styles.nav} sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -25,6 +29,10 @@ const Nav = () => (
           <a href="/home">
             <img src={logoNotas} alt="Logo Deep Bloc" className={styles.logoNotas} />
           </a>
+          <div className={styles.info}>
+            <Button className={styles.btnInfo} variant="text">Contac</Button>
+            <Button className={styles.btnInfo} variant="text">About us</Button>
+          </div>
         </Toolbar>
       </AppBar>
     </Box>
