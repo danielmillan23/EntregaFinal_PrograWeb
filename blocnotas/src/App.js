@@ -6,6 +6,7 @@ import Nav from "./components/nav/nav";
 import Login from './components/login/login';
 import { useNavigate } from 'react-router-dom';
 import Registro from './components/registro/registro';
+import Aboutus from './components/aboutus/aboutus';
 import ParticleBg from './components/ParticleBg';
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
+          <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/" element={<InitialRedirect />} />
         </Routes>
       </Router>
