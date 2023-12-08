@@ -8,13 +8,10 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import logoNotas from '../../logoNotas.png';
 import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 
 const Nav = () =>
 
 (
-
   <div className={styles.Nav} data-testid="Nav">
     <Box className={styles.nav} sx={{ flexGrow: 1 }}>
       <AppBar position="static">
