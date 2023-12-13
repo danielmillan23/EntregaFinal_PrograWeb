@@ -1,0 +1,11 @@
+.Notes {}
+
+.blocNotas {
+
+    background-color: white;
+    position: absolute;
+    right: 40%;
+    top: 70%;
+    width: 500px;
+    height: 100px;
+}
