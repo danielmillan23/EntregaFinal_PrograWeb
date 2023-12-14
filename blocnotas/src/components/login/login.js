@@ -30,7 +30,7 @@ const Login = () => {
   });
   const [userAuth, setUserAuth] = React.useState();
   const navigate = useNavigate();
-  const urlDelApi = "https://2eeb-190-113-115-45.ngrok.io";
+  const urlDelApi = "http://localhost:8080/inicio/login";
   const onChangeInput = (event) => {
     let name = event.target.name;
     let value = event.target.value;
@@ -38,9 +38,10 @@ const Login = () => {
   };
   const ComprobarUsuarioLogin = () => {
     axios
-      .get(`${urlDelApi}/users`, {
-        params: {
-          Username: user.username
+      .post(`${urlDelApi}?Nombre_Usuario=${user.Nombre_Usuario}&ConstraseNa=${user.ConstraseNa}`,null,{
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         }
       })
       .then(function (response) {

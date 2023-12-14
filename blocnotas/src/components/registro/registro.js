@@ -13,6 +13,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import girl from '../../girl.png';
+
 //import axios
 import axios from 'axios';
 
@@ -20,11 +21,10 @@ const Registro = () => {
   //la logica añadida
   const [formValues, setFormValues] = useState({
     Username: '',
-    Password: '',
-    Email: '',
+    Password: ''
   });
 
-  const urlDelApi = 'http://localhost/dashboard/apiDB.php/records';
+  const urlDelApi = 'http://localhost:8080/inicio/registro';
 
   const onChange = (event) => {
     let name = event.target.name;
@@ -33,11 +33,13 @@ const Registro = () => {
   };
 
   const RegistrarUsuario = () => {
+    
     axios
-      .post(`${urlDelApi}/users`, {
-        Username: formValues.Username,
-        Email: formValues.Email,
-        Password: formValues.Password,
+      .post(`${urlDelApi}?Nombre_Uusuario=${formValues.Nombre_Usuario}&ConstraseNa=${formValues.ConstraseNa}`,null, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        }
       })
       .then(function (response) {
         console.log(response);
