@@ -232,6 +232,10 @@
     font-size: 12px;
 }
 
+.logout{
+    color: #fff;
+}
+
 .perfil .logout {
     position: absolute;
     left: 50%;

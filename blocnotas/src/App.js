@@ -11,6 +11,7 @@ import ParticleBg from './components/ParticleBg';
 import Sidebar from './components/sidebar/sidebar';
 import Notes from './components/notes/notes';
 import Blocs from './components/blocs/blocs';
+import Manual from './components/manual/manual';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/notes" element={<Notes />} />
           <Route path="/blocs" element={<Blocs />} />
+          <Route path="/manual" element={<Manual />} />
           <Route path="/" element={<InitialRedirect />} />
         </Routes>
         <Sidebar />
