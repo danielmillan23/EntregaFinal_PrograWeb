@@ -74,8 +74,10 @@ const Blocs = () => {
 
   return (
     <div className="Blocs" data-testid="Blocs">
+      <div className={styles.centrarBloc}>
+      <h3 className='notetitle'> Note </h3>
       <TextField
-      className='agregar'
+      className='formatoText'
       label="titulo"
         id="outlined-basic"
         name="titulo"
@@ -84,7 +86,8 @@ const Blocs = () => {
       />
       <br/>
       <TextField
-      className='agregar'
+      className='formatoText'
+     
       label="Contenido"
         id="outlined-basic"
         name="Descripcion"
@@ -92,7 +95,8 @@ const Blocs = () => {
         onChange={onChange}
       />
       <br></br>
-      <Button color="secondary" variant="text" onClick={insertNotas_C }>
+      <Button color="secondary" variant="text" onClick={insertNotas_C }className={styles.botonagregar}>
+      
         Agregar
       </Button>
       <Card id="card-home">
@@ -108,7 +112,9 @@ const Blocs = () => {
            })}
         </Grid>
       </Card>
+      </div>
     </div>
+
   );
 };
 
