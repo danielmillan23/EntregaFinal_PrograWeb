@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './notes.module.css';
 import TextField from '@mui/material/TextField';
@@ -7,7 +7,20 @@ import axios from 'axios';
 
 const Notes = (props) => {
   const [note, setNote] = React.useState(props.note);
-  const urlDelApi = "http://localhost/dashboard/apiDB.php/records";
+  const [updateNote, setupdateNote] = useState({
+    Title: '',
+    Descripcion:'',
+    Fecha_de_vencimiento:'',
+    Prioridad:'',
+    Numero_De_nota:'',
+    Nombre_Usuario:''
+  });
+
+  const [eliminarNote, seteliminarNote] = useState({
+    Nombre_Usuario:'',
+    ConstraseNa:''
+
+  });
 
 
   const onChange = (event) => {
@@ -18,12 +31,14 @@ const Notes = (props) => {
     console.log(note);
   };
   const ActualizarNote = () => {
+
+    const urlDelApi = "http://localhost:3000/inicio/actualizar";
     axios
-      .put(`${urlDelApi}/notes/${note.NoteID}`, {
-
-        Title: note.Title,
-        Content: note.Content,
-
+      .put(`${urlDelApi}?titulo=${updateNote.Title}&Descripcion=${updateNote.Descripcion}&Fecha_de_vencimiento=${updateNote.Fecha_de_vencimiento}&Prioridad=${updateNote.Prioridad}&Numero_De_nota = ${updateNote.Numero_De_nota}&Nombre_Usuario=${updateNote.Nombre_Usuario}`,null, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        }
       })
       .then(function (response) {
         console.log(response);
@@ -37,10 +52,15 @@ const Notes = (props) => {
       });
   };
   const elimminarNote = () => {
+    const urlDelApi = "http://localhost:3000/inicio/eliminar";
     console.log(note.UserID);
     props.refrescar();
     axios
-      .delete(`${urlDelApi}/notes/${note.NoteID}`, {
+      .delete(`${urlDelApi}?Nombre_Usuario=${eliminarNote.Nombre_Usuario}&ConstraseNa=${eliminarNote.ConstraseNa}`,null, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        }
       })
       .then(function (response) {
         console.log(response);

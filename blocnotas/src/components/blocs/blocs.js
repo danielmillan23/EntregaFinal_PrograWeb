@@ -13,10 +13,11 @@ const Blocs = () => {
   const [note, setNote] = useState([]);
   const [addNote, setAddNote] = useState({
     Title: '',
-    Content: '',
+    Descripcion:'',
+    Fecha_de_vencimiento:'',
+    Prioridad:'',
+    Nombre_Usuario:''
   });
-
-  const urlDelApi = "http://localhost/dashboard/apiDB.php/records";
 
   useEffect(() => {
     getNotes();
@@ -29,9 +30,13 @@ const Blocs = () => {
     console.log(addNote);
   };
 
+
   const getNotes = () => {
+
+
+  const urlDelApi = "http://localhost:3000/inicio/listas"
     axios
-      .get(`${urlDelApi}/notes`)
+      .get(urlDelApi)
       .then(function (response) {
         setNote(response.data.records);
       })
@@ -41,11 +46,14 @@ const Blocs = () => {
   };
 
   const AgregarNote = () => {
+
+    const urlDelApi = "http://localhost:3000/inicio/subir"
     axios
-      .post(`${urlDelApi}/notes`, {
-        UserID: 2,
-        Title: addNote.Title,
-        Content: addNote.Content,
+      .post(`${urlDelApi}?titulo=${addNote.Title}&Descripcion=${addNote.Descripcion}&Fecha_de_vencimiento=${addNote.Fecha_de_vencimiento}&Prioridad=${addNote.Prioridad}&Nombre_Usuario=${addNote.Nombre_Usuario}`,null, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        }
       })
       .then(function (response) {
         console.log(response);
