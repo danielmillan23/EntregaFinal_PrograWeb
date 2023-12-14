@@ -13,7 +13,7 @@
     position: absolute;
     color: white;
     font-size: 40px;
-    left: 6%;
+    left: 10%;
     top: 23%;
     opacity: 80%;
 }
@@ -27,7 +27,7 @@
     color: white;
     font-size: 20px;
     padding: 0;
-    left: 6%;
+    left: 10%;
     /* Ajusta la posición horizontalmente */
     transform: translateX(50%);
     /* Centra horizontalmente */
@@ -39,7 +39,7 @@
 
 .btnEmpezar {
     position: absolute;
-    left: 45%;
+    left: 72%;
     top: 66%;
     width: 200px;
 }
