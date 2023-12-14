@@ -31,10 +31,8 @@ const Blocs = () => {
   };
 
 
-  const getNotes = () => {
-
-
-  const urlDelApi = "http://localhost:3000/inicio/listas"
+  const getNotes = (event) => {
+    const urlDelApi = "http://localhost:3000/inicio/listas"
     axios
       .get(urlDelApi)
       .then(function (response) {
@@ -45,9 +43,14 @@ const Blocs = () => {
       });
   };
 
-  const AgregarNote = () => {
 
+  
+
+    
+
+  const AgregarNote = (event) => {
     const urlDelApi = "http://localhost:3000/inicio/subir"
+
     axios
       .post(`${urlDelApi}?titulo=${addNote.Title}&Descripcion=${addNote.Descripcion}&Fecha_de_vencimiento=${addNote.Fecha_de_vencimiento}&Prioridad=${addNote.Prioridad}&Nombre_Usuario=${addNote.Nombre_Usuario}`,null, {
         headers: {
@@ -65,14 +68,17 @@ const Blocs = () => {
   };
 
   return (
-    <div className={styles.Blocs} data-testid="Blocs">
+    <div className="Blocs" data-testid="Blocs">
       <TextField
+      label="titulo"
         id="outlined-basic"
         name="Title"
         variant="standard"
         onChange={onChange}
       />
+      <br/>
       <TextField
+      label="Contenido"
         id="outlined-basic"
         name="Content"
         variant="standard"
@@ -82,13 +88,17 @@ const Blocs = () => {
       <Button color="secondary" variant="text" onClick={AgregarNote}>
         Agregar
       </Button>
-      <Card>
+      <Card id="card-home">
         <Grid container spacing={2}>
-          {note?.map((nota, index) => (
-            <Grid item xs={4} key={index}>
-              <Notes titulo="titulo" note={nota} refrescar={getNotes} />
+          {note?.map((nota, index) => {
+           return(
+            <Grid item xs={4}>
+              {" "}
+              
+              <Notes titulo="titulo" note={nota} refrescar={getNotes} ></Notes>
             </Grid>
-          ))}
+          );
+           })}
         </Grid>
       </Card>
     </div>

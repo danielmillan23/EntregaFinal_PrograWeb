@@ -25,8 +25,8 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   //logica
   const [user, setUser] = React.useState({
-    username: "",
-    password: "",
+    Nombre_Usuario: "",
+    ConstraseNa: "",
   });
   const [userAuth, setUserAuth] = React.useState();
   const navigate = useNavigate();
@@ -45,11 +45,8 @@ const Login = () => {
         }
       })
       .then(function (response) {
-        const users = response.data.records;
-        const usernameToFilter = user.username;
-        const filteredUsers = users.filter(user => user.Username === usernameToFilter);
-        const filteredUser = filteredUsers;
-        setUserAuth(filteredUser);
+        window.location.href="../blocs";
+        
       })
       .catch(function (error) {
         console.log(error);
@@ -98,26 +95,31 @@ const Login = () => {
                   color='grey'
                   id="username"
                   label="Username"
-                  name="username"
+                  name="Nombre_Usuario"
                   autoComplete="username"
                   autoFocus
                   variant='standard'
+                  onChange={onChangeInput}
+                  value={user.Nombre_Usuario}
                 />
                 <TextField
                   margin="normal"
                   required
                   fullWidth
                   color='grey'
-                  name="password"
+                  name="ContraseNa"
                   label="Password"
                   type="password"
                   id="password"
                   autoComplete="current-password"
                   variant='standard'
+                  onChange={onChangeInput}
+                  value={user.ConstraseNa}
                 />
 
                 <Button className={styles.botonInicio}
-                  type="submit"
+                 onClick={ComprobarUsuarioLogin()}
+                  
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}

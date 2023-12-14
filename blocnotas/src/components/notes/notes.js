@@ -78,22 +78,25 @@ const Notes = (props) => {
 
   return (
 
-    <div className="notes" data-testid="Notes">
-      <div className={styles.blocNotas}>
+    <div className="Notes" data-testid="Notes">
+     
         <TextField
+        className='notas'
           id="outlined-basic"
           name="Title"
-          // label="Outlined"
-
+          label="Titulo"
+          defaultValue={props.note.Title}
           // onChange={onChancheInput}
           variant="standard"
           onChange={onChange}
         />
+        <br></br>
         <TextField
+        className='notas'
           id="outlined-basic"
           name="Content"
-          // label="Outlined"
-
+          label="Contenido"
+          defaultValue={props.note.Content}
           // onChange={onChancheInput}
           variant="standard"
           onChange={onChange}
@@ -105,7 +108,7 @@ const Notes = (props) => {
         <Button color="secondary" variant="text" onClick={elimminarNote}>
           BORRAR
         </Button>
-      </div>
+      
     </div>
   )
 };
