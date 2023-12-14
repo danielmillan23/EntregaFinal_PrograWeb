@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './sidebar.css';
-import { IoSearchOutline, IoMailOutline, IoInformationCircleOutline, IoMenuOutline, IoLogOutOutline, IoDocumentTextOutline, IoPlanetOutline, IoBookOutline } from 'react-icons/io5';
+import { IoHome, IoMailOutline, IoInformationCircleOutline, IoMenuOutline, IoLogOutOutline, IoDocumentTextOutline, IoPlanetOutline, IoBookOutline } from 'react-icons/io5';
 
 
 const Sidebar = () => {
@@ -33,21 +33,21 @@ const Sidebar = () => {
 
             <ul>
               <li>
-                <a href='#'>
+                <a href='/login'>
                   <span className="iconos" onClick={handleButtonClick}><IoBookOutline /></span>
                   <span className="titulos"> Notes </span>
                 </a>
                 <span className='tool'>Notes</span>
               </li>
               <li>
-                <a href='#'>
+                <a href='/manual'>
                   <span className="iconos" onClick={handleButtonClick}><IoDocumentTextOutline /></span>
                   <span className="titulos">User Manual </span>
                 </a>
                 <span className='tool'>Manual</span>
               </li>
               <li>
-                <a href='#'>
+                <a href='/contac'>
                   <span className="iconos" onClick={handleButtonClick}><IoInformationCircleOutline /></span>
                   <span className="titulos"> Contacts </span>
                 </a>
@@ -70,11 +70,13 @@ const Sidebar = () => {
 
 
                   <div className="detalles">
-                    <div className="cierre">Sign Out</div>
-                    <div className="despedida">Thank you for visiting us</div>
+                    <div className="cierre">Home</div>
+                    <div className="despedida">Safe your ideas!</div>
                   </div>
                 </div>
-                <span className='logout'><IoLogOutOutline /></span>
+                <a href='/home'>
+                  <span className="logout" onClick={handleButtonClick}><IoHome /></span>
+                </a>
               </div>
             </div>
           </div>
