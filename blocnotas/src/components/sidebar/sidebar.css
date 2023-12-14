@@ -228,8 +228,20 @@
     font-weight: 400;
 }
 
+.cierre {
+    margin-left: 60px;
+}
+
+.despedida {
+    margin-left: 50px;
+}
+
 .perfil .perfil2 .despedida {
     font-size: 12px;
+}
+
+.logout{
+    color: #fff;
 }
 
 .perfil .logout {
