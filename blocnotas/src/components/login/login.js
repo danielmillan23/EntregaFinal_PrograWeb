@@ -54,6 +54,14 @@ const Login = () => {
       .finally(function () {
       });
   };
+
+  const onSubmit = (event) => {
+    if (event) {
+      event.preventDefault(); // Check if event exists before calling preventDefault
+    }// Prevent the default form submission behavior
+    ComprobarUsuarioLogin();
+  };
+
   //hasta aca lo añadido
   return (
     <div className={styles.Login} data-testid="Login">
@@ -87,7 +95,7 @@ const Login = () => {
               <Typography component="h1" variant="h5">
                 Sign in
               </Typography>
-              <Box component="form" noValidate >
+              <Box component="form" noValidate>
                 <TextField
                   margin="normal"
                   required
@@ -118,8 +126,7 @@ const Login = () => {
                 />
 
                 <Button className={styles.botonInicio}
-                 onClick={ComprobarUsuarioLogin()}
-                  
+                 onClick={onSubmit()}
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
