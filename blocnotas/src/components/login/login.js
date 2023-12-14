@@ -26,7 +26,7 @@ const Login = () => {
   //logica
   const [user, setUser] = React.useState({
     Nombre_Usuario: "",
-    ConstraseNa: "",
+    ContraseNa: "",
   });
   const [userAuth, setUserAuth] = React.useState();
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const Login = () => {
   };
   const ComprobarUsuarioLogin = () => {
     axios
-      .post(`${urlDelApi}?Nombre_Usuario=${user.Nombre_Usuario}&ConstraseNa=${user.ConstraseNa}`,null,{
+      .post(`${urlDelApi}?Nombre_Usuario=${user.Nombre_Usuario}&ContraseNa=${user.ContraseNa}`,null,{
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -54,6 +54,14 @@ const Login = () => {
       .finally(function () {
       });
   };
+
+  const onSubmit = (event) => {
+    if (event) {
+      event.preventDefault(); // Check if event exists before calling preventDefault
+    }// Prevent the default form submission behavior
+    ComprobarUsuarioLogin();
+  };
+
   //hasta aca lo añadido
   return (
     <div className={styles.Login} data-testid="Login">
@@ -87,7 +95,7 @@ const Login = () => {
               <Typography component="h1" variant="h5">
                 Sign in
               </Typography>
-              <Box component="form" noValidate >
+              <Box component="form" noValidate>
                 <TextField
                   margin="normal"
                   required
@@ -114,12 +122,11 @@ const Login = () => {
                   autoComplete="current-password"
                   variant='standard'
                   onChange={onChangeInput}
-                  value={user.ConstraseNa}
+                  value={user.ContraseNa}
                 />
 
                 <Button className={styles.botonInicio}
-                 onClick={ComprobarUsuarioLogin()}
-                  
+                 onClick={onSubmit()}
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
