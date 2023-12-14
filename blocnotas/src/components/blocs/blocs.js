@@ -70,18 +70,15 @@ const Blocs = () => {
   return (
     <div className="Blocs" data-testid="Blocs">
       <div className={styles.centrarBloc}>
-        <h3>Note</h3>
+        <h3 className={styles.noteTitle}>Note</h3>
         <TextField
-          label="titulo"
+          label="Título"
           id="outlined-basic"
           name="Title"
           variant="standard"
           onChange={onChange}
           color='grey'
-
-
           required
-
           className={styles.formartoText}
         />
         <br />
