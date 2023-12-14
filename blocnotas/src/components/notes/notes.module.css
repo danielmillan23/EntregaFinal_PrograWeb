@@ -1,11 +1,15 @@
-.Notes {}
+.Notes {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
 
 .blocNotas {
-
-    background-color: white;
-    position: absolute;
-    right: 40%;
-    top: 70%;
-    width: 500px;
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
 }
+
+
