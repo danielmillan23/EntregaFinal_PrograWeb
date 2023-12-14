@@ -20,11 +20,11 @@ import axios from 'axios';
 const Registro = () => {
   //la logica añadida
   const [formValues, setFormValues] = useState({
-    Username: '',
-    Password: ''
+    Nombre_Usuario: '',
+    ConstraseNa: ''
   });
 
-  const urlDelApi = 'http://localhost:8080/inicio/registro';
+  const urlDelApi = 'http://localhost:8080/inicio/Registro';
 
   const onChange = (event) => {
     let name = event.target.name;
@@ -42,7 +42,7 @@ const Registro = () => {
         }
       })
       .then(function (response) {
-        console.log(response);
+        console.log(response.formValues);
       })
       .catch(function (error) {
         //handle error
