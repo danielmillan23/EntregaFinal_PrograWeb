@@ -47,7 +47,7 @@ const Sidebar = () => {
                 <span className='tool'>Manual</span>
               </li>
               <li>
-                <a href='#'>
+                <a href='/contac'>
                   <span className="iconos" onClick={handleButtonClick}><IoInformationCircleOutline /></span>
                   <span className="titulos"> Contacts </span>
                 </a>
