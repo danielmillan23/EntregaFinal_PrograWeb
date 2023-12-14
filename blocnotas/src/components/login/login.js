@@ -38,7 +38,7 @@ const Login = () => {
   };
   const ComprobarUsuarioLogin = () => {
     axios
-      .post(`${urlDelApi}?username=${user.Nombre_Usuario}&password=${user.ConstraseNa}`,null,{
+      .post(`${urlDelApi}?Nombre_Usuario=${user.Nombre_Usuario}&ConstraseNa=${user.ConstraseNa}`,null,{
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
