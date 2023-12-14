@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './home.module.css';
 import Button from '@mui/material/Button';
 import book from '../../book.png';
@@ -7,7 +6,7 @@ import book from '../../book.png';
 
 
 const Home = () => (
-  <div className={styles.Home} data-testid="Home">
+  <div data-testid="Home">
     <div>
       <h1 className={styles.title}>¡Da vida a tus pensamientos!</h1>
       <p className={styles.txtbienvenida}>Convierte tus ideas en palabras y dales un hogar seguro.

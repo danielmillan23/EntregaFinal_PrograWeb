@@ -1,12 +1,9 @@
-.Home {}
-
 .book {
 
     width: 700px;
     position: absolute;
     left: 50%;
     top: 22%;
-
 }
 
 .title {
@@ -19,6 +16,7 @@
 }
 
 .txtbienvenida {
+    
     position: absolute;
     max-width: 480px;
     margin: 0 auto;

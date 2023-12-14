@@ -29,8 +29,8 @@ const Nav = () =>
             <img src={logoNotas} alt="Logo Deep Bloc" className={styles.logoNotas} />
           </a>
           <div className={styles.info}>
-            <Button className={styles.btnInfo} variant="text">Contac</Button>
-            <Button className={styles.btnInfo} href='/aboutus' variant="text">About us</Button>
+            <Button className={styles.btnInfo} href='/login' variant="text">Login</Button>
+            <Button className={styles.btnInfo} href='/registro' variant="text">Register</Button>
 
           </div>
         </Toolbar>
