@@ -31,17 +31,17 @@ const Login = () => {
   const [userAuth, setUserAuth] = React.useState();
   const navigate = useNavigate();
   const urlDelApi = "http://localhost:8080/inicio/login";
+
   const onChangeInput = (event) => {
     let name = event.target.name;
     let value = event.target.value;
     setUser({ ...user, [name]: value });
   };
-  const ComprobarUsuarioLogin = () => {
+  const ComprobarUsuarioLogin = (e) => {
     axios
-      .post(`${urlDelApi}?Nombre_Usuario=${user.Nombre_Usuario}&ContraseNa=${user.ContraseNa}`,null,{
+      .post(`${urlDelApi}?Nombre_Usuario=${user.Nombre_Usuario}&ConstraseNa=${user.ContraseNa}`,null,{
         headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
         }
       })
       .then(function (response) {
@@ -126,7 +126,7 @@ const Login = () => {
                 />
 
                 <Button className={styles.botonInicio}
-                 onClick={onSubmit()}
+                 onClick={onSubmit}
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}

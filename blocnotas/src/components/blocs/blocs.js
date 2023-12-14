@@ -12,15 +12,15 @@ import Button from '@mui/material/Button';
 const Blocs = () => {
   const [note, setNote] = useState([]);
   const [addNote, setAddNote] = useState({
-    Title: '',
-    Descripcion: '',
-    Fecha_de_vencimiento: '',
-    Prioridad: '',
-    Nombre_Usuario: ''
+    titulo: '',
+    Descripcion:'',
+    Fecha_de_vencimiento:'',
+    Prioridad:'',
+    Nombre_Usuario:''
   });
 
   useEffect(() => {
-    getNotes();
+    getAllnotas();
   }, []);
 
   const onChange = (event) => {
@@ -31,10 +31,13 @@ const Blocs = () => {
   };
 
 
-  const getNotes = (event) => {
-    const urlDelApi = "http://localhost:3000/inicio/listas"
+  const getAllnotas = (event) => {
+    const urlDelApi = "http://localhost:8080/inicio/listas"
     axios
-      .get(urlDelApi)
+      .get(urlDelApi, {
+        headers: {
+          "Content-Type": "application/json"
+        }})
       .then(function (response) {
         setNote(response.data.records);
       })
@@ -44,15 +47,17 @@ const Blocs = () => {
   };
 
 
+  
 
+    
 
-
-
-  const AgregarNote = (event) => {
-    const urlDelApi = "http://localhost:3000/inicio/subir"
+  const insertNotas_C = (event) => {
+    const urlDelApi = "http://localhost:8080/inicio/subir"
 
     axios
-      .post(`${urlDelApi}?titulo=${addNote.Title}&Descripcion=${addNote.Descripcion}&Fecha_de_vencimiento=${addNote.Fecha_de_vencimiento}&Prioridad=${addNote.Prioridad}&Nombre_Usuario=${addNote.Nombre_Usuario}`, null, {
+      .post(`${urlDelApi}?titulo=${addNote.titulo}&Descripcion=${addNote.Descripcion}&Fecha_de_vencimiento=${addNote.Fecha_de_vencimiento}&Prioridad=${addNote.Prioridad}&Nombre_Usuario=${addNote.Nombre_Usuario}`,null, {
+        titulo: addNote.titulo,
+        Descripcion: addNote.Descripcion,
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -60,7 +65,7 @@ const Blocs = () => {
       })
       .then(function (response) {
         console.log(response);
-        getNotes();
+        getAllnotas();
       })
       .catch(function (error) {
         console.log(error);
@@ -69,52 +74,40 @@ const Blocs = () => {
 
   return (
     <div className="Blocs" data-testid="Blocs">
-      <div className={styles.centrarBloc}>
-        <h3 className={styles.noteTitle}>Note</h3>
-        <TextField
-          label="Título"
-          id="outlined-basic"
-          name="Title"
-          variant="standard"
-          onChange={onChange}
-          color='grey'
-          required
-          className={styles.formartoText}
-        />
-        <br />
-
-        <TextField
-          label="Contenido"
-          id="outlined-basic"
-          name="Content"
-          variant="standard"
-          onChange={onChange}
-          margin="normal"
-          required
-          color='grey'
-
-
-          className={styles.formartoText}
-
-        />
-        <br></br>
-        <Button color="secondary" variant="text" onClick={AgregarNote} className={styles.bottonagregar}>
-          Agregar
-        </Button>
-        <Card id="card-home">
-          <Grid container spacing={2}>
-            {note?.map((nota, index) => {
-              return (
-                <Grid item xs={4}>
-                  {" "}
-
-                  <Notes titulo="titulo" note={nota} refrescar={getNotes} ></Notes>
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Card>
-      </div>
+      <TextField
+      className='agregar'
+      label="titulo"
+        id="outlined-basic"
+        name="titulo"
+        variant="standard"
+        onChange={onChange}
+      />
+      <br/>
+      <TextField
+      className='agregar'
+      label="Contenido"
+        id="outlined-basic"
+        name="Descripcion"
+        variant="standard"
+        onChange={onChange}
+      />
+      <br></br>
+      <Button color="secondary" variant="text" onClick={insertNotas_C }>
+        Agregar
+      </Button>
+      <Card id="card-home">
+        <Grid container spacing={2}>
+          {note?.map((nota, index) => {
+           return(
+            <Grid item xs={4}>
+              {" "}
+              
+              <Notes titulo="titulo" note={note} refrescar={getAllnotas} ></Notes>
+            </Grid>
+          );
+           })}
+        </Grid>
+      </Card>
     </div>
   );
 };
