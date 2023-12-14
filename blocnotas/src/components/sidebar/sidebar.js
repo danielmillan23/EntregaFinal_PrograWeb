@@ -40,7 +40,7 @@ const Sidebar = () => {
                 <span className='tool'>Notes</span>
               </li>
               <li>
-                <a href='#'>
+                <a href='/manual'>
                   <span className="iconos" onClick={handleButtonClick}><IoDocumentTextOutline /></span>
                   <span className="titulos">User Manual </span>
                 </a>
@@ -74,7 +74,9 @@ const Sidebar = () => {
                     <div className="despedida">Thank you for visiting us</div>
                   </div>
                 </div>
-                <span className='logout'><IoLogOutOutline /></span>
+                <a href='/home'>
+                  <span className="logout" onClick={handleButtonClick}><IoLogOutOutline /></span>
+                </a>
               </div>
             </div>
           </div>
