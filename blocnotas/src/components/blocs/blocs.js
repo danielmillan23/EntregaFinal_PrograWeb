@@ -13,10 +13,10 @@ const Blocs = () => {
   const [note, setNote] = useState([]);
   const [addNote, setAddNote] = useState({
     Title: '',
-    Descripcion:'',
-    Fecha_de_vencimiento:'',
-    Prioridad:'',
-    Nombre_Usuario:''
+    Descripcion: '',
+    Fecha_de_vencimiento: '',
+    Prioridad: '',
+    Nombre_Usuario: ''
   });
 
   useEffect(() => {
@@ -44,15 +44,15 @@ const Blocs = () => {
   };
 
 
-  
 
-    
+
+
 
   const AgregarNote = (event) => {
     const urlDelApi = "http://localhost:3000/inicio/subir"
 
     axios
-      .post(`${urlDelApi}?titulo=${addNote.Title}&Descripcion=${addNote.Descripcion}&Fecha_de_vencimiento=${addNote.Fecha_de_vencimiento}&Prioridad=${addNote.Prioridad}&Nombre_Usuario=${addNote.Nombre_Usuario}`,null, {
+      .post(`${urlDelApi}?titulo=${addNote.Title}&Descripcion=${addNote.Descripcion}&Fecha_de_vencimiento=${addNote.Fecha_de_vencimiento}&Prioridad=${addNote.Prioridad}&Nombre_Usuario=${addNote.Nombre_Usuario}`, null, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -69,38 +69,55 @@ const Blocs = () => {
 
   return (
     <div className="Blocs" data-testid="Blocs">
-      <TextField
-      label="titulo"
-        id="outlined-basic"
-        name="Title"
-        variant="standard"
-        onChange={onChange}
-      />
-      <br/>
-      <TextField
-      label="Contenido"
-        id="outlined-basic"
-        name="Content"
-        variant="standard"
-        onChange={onChange}
-      />
-      <br></br>
-      <Button color="secondary" variant="text" onClick={AgregarNote}>
-        Agregar
-      </Button>
-      <Card id="card-home">
-        <Grid container spacing={2}>
-          {note?.map((nota, index) => {
-           return(
-            <Grid item xs={4}>
-              {" "}
-              
-              <Notes titulo="titulo" note={nota} refrescar={getNotes} ></Notes>
-            </Grid>
-          );
-           })}
-        </Grid>
-      </Card>
+      <div className={styles.centrarBloc}>
+        <h3>Note</h3>
+        <TextField
+          label="titulo"
+          id="outlined-basic"
+          name="Title"
+          variant="standard"
+          onChange={onChange}
+          color='grey'
+
+
+          required
+
+          className={styles.formartoText}
+        />
+        <br />
+
+        <TextField
+          label="Contenido"
+          id="outlined-basic"
+          name="Content"
+          variant="standard"
+          onChange={onChange}
+          margin="normal"
+          required
+          color='grey'
+
+
+          className={styles.formartoText}
+
+        />
+        <br></br>
+        <Button color="secondary" variant="text" onClick={AgregarNote} className={styles.bottonagregar}>
+          Agregar
+        </Button>
+        <Card id="card-home">
+          <Grid container spacing={2}>
+            {note?.map((nota, index) => {
+              return (
+                <Grid item xs={4}>
+                  {" "}
+
+                  <Notes titulo="titulo" note={nota} refrescar={getNotes} ></Notes>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Card>
+      </div>
     </div>
   );
 };
