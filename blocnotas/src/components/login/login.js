@@ -26,7 +26,7 @@ const Login = () => {
   //logica
   const [user, setUser] = React.useState({
     Nombre_Usuario: "",
-    ConstraseNa: "",
+    ContraseNa: "",
   });
   const [userAuth, setUserAuth] = React.useState();
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const Login = () => {
   };
   const ComprobarUsuarioLogin = () => {
     axios
-      .post(`${urlDelApi}?Nombre_Usuario=${user.Nombre_Usuario}&ConstraseNa=${user.ConstraseNa}`,null,{
+      .post(`${urlDelApi}?Nombre_Usuario=${user.Nombre_Usuario}&ContraseNa=${user.ContraseNa}`,null,{
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -114,7 +114,7 @@ const Login = () => {
                   autoComplete="current-password"
                   variant='standard'
                   onChange={onChangeInput}
-                  value={user.ConstraseNa}
+                  value={user.ContraseNa}
                 />
 
                 <Button className={styles.botonInicio}
